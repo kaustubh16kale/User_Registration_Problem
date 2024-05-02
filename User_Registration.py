@@ -49,11 +49,11 @@ def valid_mobile_number(mob_num):
 
 def pass_word(password):
     '''
-    Description: function to check altleast one upper case one numeric and minimium 8 character in password
+    Description: function to check altleast one upper case one numeric one special character and minimium 8 character in password
     Parameter: password : password taken through user
     Return: True if password matches the format else False
     '''
-    if re.match(r'^(?=.*[A-Z].*[0-9]).{8,}$',password):
+    if re.match(r'^(?=.*[A-Z].*[0-9])(?=.*[^A-Za-z0-9]).{8,}$',password):
         return True
     else:
         return False
@@ -63,37 +63,37 @@ def main():
         Return None
     '''
     try:
-        first_name = input("Enter the first name: ")
-        if valid_first_name(first_name):
-            logging.info(f'Valid first name: {first_name}')
-            print("Valid first name")
-        else:
-            logging.warning(f'Invalid first name: {first_name}')
-            print("Invalid first name")
+        # first_name = input("Enter the first name: ")
+        # if valid_first_name(first_name):
+        #     logging.info(f'Valid first name: {first_name}')
+        #     print("Valid first name")
+        # else:
+        #     logging.warning(f'Invalid first name: {first_name}')
+        #     print("Invalid first name")
         
-        last_name=input("Enter last_name: ")
-        if valid_last_name(last_name):
-            logging.info(f"Valid Last name: {last_name}")
-            print("Valid last name")
-        else:
-            logging.warning(f"Invalid last name: {last_name}")
-            print("Invalid last name")
+        # last_name=input("Enter last_name: ")
+        # if valid_last_name(last_name):
+        #     logging.info(f"Valid Last name: {last_name}")
+        #     print("Valid last name")
+        # else:
+        #     logging.warning(f"Invalid last name: {last_name}")
+        #     print("Invalid last name")
         
-        mail=input("Enter the mail id: ")
-        if valid_mail(mail):
-            logging.info(f"Valid mail id: {mail}")
-            print("Valid mail id")
-        else:
-            logging.warning(f"Enter valid mail id: {mail}")
-            print("Invalid mail id")
+        # mail=input("Enter the mail id: ")
+        # if valid_mail(mail):
+        #     logging.info(f"Valid mail id: {mail}")
+        #     print("Valid mail id")
+        # else:
+        #     logging.warning(f"Enter valid mail id: {mail}")
+        #     print("Invalid mail id")
         
-        mob_num=input("Enter the mobile number: ")
-        if valid_mobile_number(mob_num):
-            logging.info(f"Valid mobile number: {mob_num}")
-            print("Valid mobile number")
-        else:
-            logging.warning(f"Enter valid mobile number: {mob_num}")
-            print("Invalid mobile number")
+        # mob_num=input("Enter the mobile number: ")
+        # if valid_mobile_number(mob_num):
+        #     logging.info(f"Valid mobile number: {mob_num}")
+        #     print("Valid mobile number")
+        # else:
+        #     logging.warning(f"Enter valid mobile number: {mob_num}")
+        #     print("Invalid mobile number")
         
         password=input("Enter the password of minimum 8 characters and one upper case character: ")
         if pass_word(password):
