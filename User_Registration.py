@@ -48,7 +48,12 @@ def valid_mobile_number(mob_num):
         return False
 
 def pass_word(password):
-    if re.match(r'\w{8}',password):
+    '''
+    Description: function to check altleast one upper case and minimium 8 character in password
+    Parameter: password : password taken through user
+    Return: True if password matches the format else False
+    '''
+    if re.match(r'^(?=.*[A-Z]).{8,}$',password):
         return True
     else:
         return False
@@ -90,7 +95,7 @@ def main():
             logging.warning(f"Enter valid mobile number: {mob_num}")
             print("Invalid mobile number")
         
-        password=input("Enter the password minimum 8 characters: ")
+        password=input("Enter the password of minimum 8 characters and one upper case character: ")
         if pass_word(password):
             logging.info(f"Valid password: {password}")
             print("Valid password")
