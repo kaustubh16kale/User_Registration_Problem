@@ -4,10 +4,10 @@ import re
 logging.basicConfig(format='%(asctime)s %(message)s', filename="User_Register.log", level=logging.INFO)
 
 def valid_first_name(first_name):
-    '''valid_first_name : function to check the name input is valid or not
-        first_name : name entered by the user
-         return : True if the regex pattern match
-         return : False if the pattern does not match
+    '''
+        Description: function to check the name input is valid or not
+        parameter: first_name : name entered by the user
+        Return: True if the regex pattern match , False if the pattern does not match
          '''
     if re.match(r'^[A-Z][a-z]{2,}$', first_name):
         return True
@@ -15,19 +15,31 @@ def valid_first_name(first_name):
         return False
 
 def valid_last_name(last_name):
-    '''function to check the last_name 
-        last_name: last name entered by user
-        return : True if the pattern matches
-        return : False if the pattern does not match
+    '''
+    Description: function to check the last_name 
+    Parameter: last_name : last name entered by user
+    Return: True if the pattern matches , False if the pattern does not match
     '''
     if re.match(r'[A-Z][a-z]{2,}$',last_name):
         return True
     else:
         return False
 
+def valid_mail(mail):
+    '''
+    Description: function valid_email used to check if the email is valid or not
+    Parameter: mail : email id entered from the user
+    Return : True if the mail id followed the pattern , False if the mail id does not match the pattern
+    '''
+    if re.match(r'^\w+\.?\w+?@\w+\.\w{2,}$',mail):
+        return True
+    else:
+        return False
+
 def main():
-    '''main function:
-        return None'''
+    ''' main function:
+        Return None
+    '''
     try:
         first_name = input("Enter the first name: ")
         if valid_first_name(first_name):
@@ -43,6 +55,13 @@ def main():
         else:
             logging.warning(f"Invalid last name: {last_name}")
             print("Invalid last name")
+        mail=input("Enter the mail id: ")
+        if valid_mail(mail):
+            logging.info(f"Valid mail id: {mail}")
+            print("Valid mail id")
+        else:
+            logging.warning(f"Enter valid mail id: {mail}")
+            print("Invalid mail id")
     except Exception as e:
         logging.log(e)
 
