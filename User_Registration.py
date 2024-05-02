@@ -49,11 +49,11 @@ def valid_mobile_number(mob_num):
 
 def pass_word(password):
     '''
-    Description: function to check altleast one upper case and minimium 8 character in password
+    Description: function to check altleast one upper case one numeric and minimium 8 character in password
     Parameter: password : password taken through user
     Return: True if password matches the format else False
     '''
-    if re.match(r'^(?=.*[A-Z]).{8,}$',password):
+    if re.match(r'^(?=.*[A-Z].*[0-9]).{8,}$',password):
         return True
     else:
         return False
