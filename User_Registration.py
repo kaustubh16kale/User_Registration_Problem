@@ -47,6 +47,12 @@ def valid_mobile_number(mob_num):
     else:
         return False
 
+def pass_word(password):
+    if re.match(r'\w{8}',password):
+        return True
+    else:
+        return False
+
 def main():
     ''' main function:
         Return None
@@ -59,6 +65,7 @@ def main():
         else:
             logging.warning(f'Invalid first name: {first_name}')
             print("Invalid first name")
+        
         last_name=input("Enter last_name: ")
         if valid_last_name(last_name):
             logging.info(f"Valid Last name: {last_name}")
@@ -66,6 +73,7 @@ def main():
         else:
             logging.warning(f"Invalid last name: {last_name}")
             print("Invalid last name")
+        
         mail=input("Enter the mail id: ")
         if valid_mail(mail):
             logging.info(f"Valid mail id: {mail}")
@@ -73,6 +81,7 @@ def main():
         else:
             logging.warning(f"Enter valid mail id: {mail}")
             print("Invalid mail id")
+        
         mob_num=input("Enter the mobile number: ")
         if valid_mobile_number(mob_num):
             logging.info(f"Valid mobile number: {mob_num}")
@@ -80,6 +89,14 @@ def main():
         else:
             logging.warning(f"Enter valid mobile number: {mob_num}")
             print("Invalid mobile number")
+        
+        password=input("Enter the password minimum 8 characters: ")
+        if pass_word(password):
+            logging.info(f"Valid password: {password}")
+            print("Valid password")
+        else:
+            logging.warning(f"Enter valid password: {password}")
+            print("Invalid password")
     except Exception as e:
         logging.log(e)
 
