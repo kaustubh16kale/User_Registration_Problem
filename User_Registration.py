@@ -36,6 +36,17 @@ def valid_mail(mail):
     else:
         return False
 
+def valid_mobile_number(mob_num):
+    '''
+    Description: function to check valid mobile number
+    Parameter: mob_num : input taken throug user
+    Return: True if the pattern matches else False if it does not match    
+    '''
+    if re.match(r'^\d{2,} \d{10}',mob_num):
+        return True
+    else:
+        return False
+
 def main():
     ''' main function:
         Return None
@@ -62,6 +73,13 @@ def main():
         else:
             logging.warning(f"Enter valid mail id: {mail}")
             print("Invalid mail id")
+        mob_num=input("Enter the mobile number: ")
+        if valid_mobile_number(mob_num):
+            logging.info(f"Valid mobile number: {mob_num}")
+            print("Valid mobile number")
+        else:
+            logging.warning(f"Enter valid mobile number: {mob_num}")
+            print("Invalid mobile number")
     except Exception as e:
         logging.log(e)
 
